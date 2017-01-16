@@ -33,15 +33,15 @@
                     </button>
                 <br /><br />
 
-                <button #one md-raised-button type="button" class="md-raised md-primary btn btn-default"
+                <button #four md-raised-button type="button" class="md-raised md-primary btn btn-default"
                         (click)="queueNumber('4')">
                     4
                 </button>
-                <button #one md-raised-button type="button" class="md-raised md-primary btn btn-default"
+                <button #five md-raised-button type="button" class="md-raised md-primary btn btn-default"
                         (click)="queueNumber('5')">
                     5
                 </button>
-                <button #one md-raised-button type="button" class="md-raised md-primary btn btn-default"
+                <button #six md-raised-button type="button" class="md-raised md-primary btn btn-default"
                         (click)="queueNumber('6')">
                     6
                 </button>
@@ -53,37 +53,43 @@
                         (click)="queueNumber('1')">
                     1
                 </button>
-                <button #one md-raised-button type="button" class="md-raised md-primary btn btn-default"
+                <button #two md-raised-button type="button" class="md-raised md-primary btn btn-default"
                         (click)="queueNumber('2')">
                     2
                 </button>
-                <button #one md-raised-button type="button" class="md-raised md-primary btn btn-default"
+                <button #three md-raised-button type="button" class="md-raised md-primary btn btn-default"
                         (click)="queueNumber('3')">
                     3
                 </button>
-                    <button #plus md-mini-fab (click)="calcAction('-')"><md-icon>remove</md-icon>
+                    <button #minus md-mini-fab (click)="calcAction('-')"><md-icon>remove</md-icon>
                     </button>
                 <br /><br />
 
 
-                <button #one md-raised-button type="button" class="md-raised md-primary btn btn-default"
+                <button #zero md-raised-button type="button" class="md-raised md-primary btn btn-default"
                         (click)="queueNumber('0')">
                     0
                 </button>
 
-                <button #one md-raised-button type="button" class="md-raised md-primary btn btn-default"
+                <button #dot md-raised-button type="button" class="md-raised md-primary btn btn-default"
                         (click)="queueNumber('.')">
                     .
                 </button>
 
-                <button #one md-raised-button type="button" class="md-raised md-primary btn btn-default"
+                <button #equal md-raised-button type="button" class="md-raised md-primary btn btn-default"
                         (click)="calcAction('=')">
                     =
                 </button>
                 <button #plus md-mini-fab (click)="calcAction('+')"><md-icon>add</md-icon></button>
-
+                <br />
+                <p align="center">
+                    <button md-button type="button" class="md-raised md-primary btn btn-default" (click)="clearScreen()">CLEAR</button>
+                </p>
             </form>
         </md-card-content>
-        
+        <md-card-actions>
+            
+            
+        </md-card-actions>
     </md-card>
 </div>

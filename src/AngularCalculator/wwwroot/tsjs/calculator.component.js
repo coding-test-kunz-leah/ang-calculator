@@ -11,40 +11,65 @@ var CalculatorComponent = (function () {
     }
     CalculatorComponent.prototype.ngOnInit = function () {
         this.stringForNumber = "";
+        //this.currentNumber = 0;
     };
     CalculatorComponent.prototype.queueNumber = function (s) {
-        this.stringForNumber = this.stringForNumber + s;
+        if (this.mathActionToClearScreen == true) {
+            this.stringForNumber = s;
+            this.mathActionToClearScreen = false;
+        }
+        else {
+            this.stringForNumber = this.stringForNumber + s;
+        }
     };
     CalculatorComponent.prototype.calcAction = function (a) {
-        //÷ x - = +
+        //if the last 
+        this.mathActionToClearScreen = true;
         //use previously stored action to perform math action
         if (this.mathAction == "+") {
-            this.stringForNumber = (this.holdNumber + Number(this.stringForNumber)).toString();
-            console.log('holdNumber: ' + this.holdNumber);
+            this.currentNumber = (this.previousNumber + Number(this.stringForNumber));
+            console.log('previousNumber: ' + this.previousNumber);
             console.log('mathAction: ' + this.mathAction);
             console.log('stringForNumber: ' + this.stringForNumber);
+            this.stringForNumber = "";
         }
         else if (this.mathAction == "-") {
-            this.stringForNumber = (this.holdNumber - Number(this.stringForNumber)).toString();
-            console.log('holdNumber: ' + this.holdNumber);
+            this.currentNumber = (this.previousNumber - Number(this.stringForNumber));
+            console.log('previousNumber: ' + this.previousNumber);
             console.log('mathAction: ' + this.mathAction);
             console.log('stringForNumber: ' + this.stringForNumber);
+            this.stringForNumber = "";
         }
         else if (this.mathAction == "÷") {
-            this.stringForNumber = (this.holdNumber / Number(this.stringForNumber)).toString();
-            console.log('holdNumber: ' + this.holdNumber);
+            this.currentNumber = (this.previousNumber / Number(this.stringForNumber));
+            console.log('previousNumber: ' + this.previousNumber);
             console.log('mathAction: ' + this.mathAction);
             console.log('stringForNumber: ' + this.stringForNumber);
+            this.stringForNumber = "";
         }
         else if (this.mathAction == "x") {
-            this.stringForNumber = (this.holdNumber * Number(this.stringForNumber)).toString();
-            console.log('holdNumber: ' + this.holdNumber);
+            this.currentNumber = (this.previousNumber * Number(this.stringForNumber));
+            console.log('previousNumber: ' + this.previousNumber);
             console.log('mathAction: ' + this.mathAction);
             console.log('stringForNumber: ' + this.stringForNumber);
+            this.stringForNumber = "";
         }
-        this.holdNumber = +this.stringForNumber;
+        else if (this.mathAction == "=") {
+        }
+        else {
+            this.previousNumber = +this.stringForNumber;
+            this.stringForNumber = "";
+        }
         this.mathAction = a;
+        if (this.currentNumber != null) {
+            this.stringForNumber = this.currentNumber.toString();
+        }
+    };
+    CalculatorComponent.prototype.clearScreen = function () {
         this.stringForNumber = "";
+        this.mathAction = "";
+        this.currentNumber = null;
+        this.previousNumber = null;
     };
     return CalculatorComponent;
 }());
