@@ -18,9 +18,10 @@ export class CalculatorComponent implements OnInit {
     currentNumber: number;
     previousNumber: number;
     mathActionToClearScreen: boolean;
+    message: string;
 
     ngOnInit(): void {
-
+        this.message = "Kunz & Leigh Coding Test";
         this.stringForNumber = "";
         //this.currentNumber = 0;
         
@@ -31,6 +32,7 @@ export class CalculatorComponent implements OnInit {
         if (this.mathActionToClearScreen == true) {
             this.stringForNumber = s;
             this.mathActionToClearScreen = false;
+            
         }
         else {
             this.stringForNumber = this.stringForNumber + s;
@@ -41,38 +43,26 @@ export class CalculatorComponent implements OnInit {
 
     calcAction(a: string) {
         
-        //if the last 
+        //clear screen if any of the math operation buttons was pressed
         this.mathActionToClearScreen = true;
 
         //use previously stored action to perform math action
         if (this.mathAction == "+") {
             this.currentNumber = (this.previousNumber + Number(this.stringForNumber));
-            console.log('previousNumber: ' + this.previousNumber);
-            console.log('mathAction: ' + this.mathAction);
-            console.log('stringForNumber: ' + this.stringForNumber);
             this.stringForNumber = "";
         }
         else if (this.mathAction == "-") {
             this.currentNumber = (this.previousNumber - Number(this.stringForNumber));
-            console.log('previousNumber: ' + this.previousNumber);
-            console.log('mathAction: ' + this.mathAction);
-            console.log('stringForNumber: ' + this.stringForNumber);
             this.stringForNumber = "";
 
         }
         else if (this.mathAction == "÷") {
             this.currentNumber = (this.previousNumber / Number(this.stringForNumber))
-            console.log('previousNumber: ' + this.previousNumber);
-            console.log('mathAction: ' + this.mathAction);
-            console.log('stringForNumber: ' + this.stringForNumber);
             this.stringForNumber = "";
 
         }
         else if (this.mathAction == "x") {
             this.currentNumber = (this.previousNumber * Number(this.stringForNumber))
-            console.log('previousNumber: ' + this.previousNumber);
-            console.log('mathAction: ' + this.mathAction);
-            console.log('stringForNumber: ' + this.stringForNumber);
             this.stringForNumber = "";
 
         }

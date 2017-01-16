@@ -10,6 +10,7 @@ var CalculatorComponent = (function () {
     function CalculatorComponent() {
     }
     CalculatorComponent.prototype.ngOnInit = function () {
+        this.message = "Kunz & Leigh Coding Test";
         this.stringForNumber = "";
         //this.currentNumber = 0;
     };
@@ -23,35 +24,23 @@ var CalculatorComponent = (function () {
         }
     };
     CalculatorComponent.prototype.calcAction = function (a) {
-        //if the last 
+        //clear screen if any of the math operation buttons was pressed
         this.mathActionToClearScreen = true;
         //use previously stored action to perform math action
         if (this.mathAction == "+") {
             this.currentNumber = (this.previousNumber + Number(this.stringForNumber));
-            console.log('previousNumber: ' + this.previousNumber);
-            console.log('mathAction: ' + this.mathAction);
-            console.log('stringForNumber: ' + this.stringForNumber);
             this.stringForNumber = "";
         }
         else if (this.mathAction == "-") {
             this.currentNumber = (this.previousNumber - Number(this.stringForNumber));
-            console.log('previousNumber: ' + this.previousNumber);
-            console.log('mathAction: ' + this.mathAction);
-            console.log('stringForNumber: ' + this.stringForNumber);
             this.stringForNumber = "";
         }
         else if (this.mathAction == "÷") {
             this.currentNumber = (this.previousNumber / Number(this.stringForNumber));
-            console.log('previousNumber: ' + this.previousNumber);
-            console.log('mathAction: ' + this.mathAction);
-            console.log('stringForNumber: ' + this.stringForNumber);
             this.stringForNumber = "";
         }
         else if (this.mathAction == "x") {
             this.currentNumber = (this.previousNumber * Number(this.stringForNumber));
-            console.log('previousNumber: ' + this.previousNumber);
-            console.log('mathAction: ' + this.mathAction);
-            console.log('stringForNumber: ' + this.stringForNumber);
             this.stringForNumber = "";
         }
         else if (this.mathAction == "=") {

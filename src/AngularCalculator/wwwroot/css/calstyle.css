@@ -1,11 +1,13 @@
 ﻿.top-card {
   width: 400px;
-  
+  background-image: url('http://icons.iconarchive.com/icons/igh0zt/ios7-style-metro-ui/256/MetroUI-Apps-Calculator-icon.png');
+  background-size:contain;
+  background-repeat:no-repeat;
 }
 
 .main-card {
   width: 400px;
-  height: 300px;
+  height: 350px;
 }
 
 .result-box{
@@ -14,5 +16,5 @@
 
 .header-image {
   background-image: url('http://icons.iconarchive.com/icons/igh0zt/ios7-style-metro-ui/256/MetroUI-Apps-Calculator-icon.png');
-  background-size: contain;
+  background-size:auto;
 }

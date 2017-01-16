@@ -83,7 +83,11 @@
                 <button #plus md-mini-fab (click)="calcAction('+')"><md-icon>add</md-icon></button>
                 <br />
                 <p align="center">
-                    <button md-button type="button" class="md-raised md-primary btn btn-default" (click)="clearScreen()">CLEAR</button>
+                    
+                    <button #clearscreen md-raised-button type="button" class="md-raised md-primary btn btn-default"
+                            (click)="clearScreen()">
+                        CLEAR
+                    </button>
                 </p>
             </form>
         </md-card-content>
