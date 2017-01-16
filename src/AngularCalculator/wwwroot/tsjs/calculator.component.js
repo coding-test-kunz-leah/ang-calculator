@@ -10,7 +10,41 @@ var CalculatorComponent = (function () {
     function CalculatorComponent() {
     }
     CalculatorComponent.prototype.ngOnInit = function () {
-        this.message = "Calci-Component Loaded.";
+        this.stringForNumber = "";
+    };
+    CalculatorComponent.prototype.queueNumber = function (s) {
+        this.stringForNumber = this.stringForNumber + s;
+    };
+    CalculatorComponent.prototype.calcAction = function (a) {
+        //÷ x - = +
+        //use previously stored action to perform math action
+        if (this.mathAction == "+") {
+            this.stringForNumber = (this.holdNumber + Number(this.stringForNumber)).toString();
+            console.log('holdNumber: ' + this.holdNumber);
+            console.log('mathAction: ' + this.mathAction);
+            console.log('stringForNumber: ' + this.stringForNumber);
+        }
+        else if (this.mathAction == "-") {
+            this.stringForNumber = (this.holdNumber - Number(this.stringForNumber)).toString();
+            console.log('holdNumber: ' + this.holdNumber);
+            console.log('mathAction: ' + this.mathAction);
+            console.log('stringForNumber: ' + this.stringForNumber);
+        }
+        else if (this.mathAction == "÷") {
+            this.stringForNumber = (this.holdNumber / Number(this.stringForNumber)).toString();
+            console.log('holdNumber: ' + this.holdNumber);
+            console.log('mathAction: ' + this.mathAction);
+            console.log('stringForNumber: ' + this.stringForNumber);
+        }
+        else if (this.mathAction == "x") {
+            this.stringForNumber = (this.holdNumber * Number(this.stringForNumber)).toString();
+            console.log('holdNumber: ' + this.holdNumber);
+            console.log('mathAction: ' + this.mathAction);
+            console.log('stringForNumber: ' + this.stringForNumber);
+        }
+        this.holdNumber = +this.stringForNumber;
+        this.mathAction = a;
+        this.stringForNumber = "";
     };
     return CalculatorComponent;
 }());
